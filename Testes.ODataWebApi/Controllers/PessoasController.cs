@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using System.Web.Http.OData;
-using System.Web.Http.OData.Routing;
+using AutoMapper.QueryableExtensions;
 using Testes.ODataWebApi.Models;
 
 namespace Testes.ODataWebApi.Controllers
@@ -30,9 +25,9 @@ namespace Testes.ODataWebApi.Controllers
 
         // GET: odata/Pessoas
         [EnableQuery]
-        public IQueryable<Pessoa> GetPessoas()
+        public IQueryable<PessoaViewModel> GetPessoas()
         {
-            return db.Pessoas;
+            return db.Pessoas.ProjectTo<PessoaViewModel>();
         }
 
         // GET: odata/Pessoas(5)

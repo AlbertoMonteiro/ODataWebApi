@@ -23,7 +23,7 @@ namespace Testes.ODataWebApi
             );
 
             var builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Pessoa>("Pessoas");
+            builder.EntitySet<PessoaViewModel>("Pessoas");
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }
     }
